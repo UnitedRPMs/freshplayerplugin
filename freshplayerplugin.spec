@@ -90,7 +90,7 @@ install -Dm 0644 LICENSE %{buildroot}/%{_datadir}/licenses/freshplayerplugin/fre
 
 %changelog
 
-* Wed May 04 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 0.3.5-6-20160428-99c5aa1
+* Fri Jun 03 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 0.3.5-6-20160428-99c5aa1
 - Forced gtk2
 - solved slow videos
 
