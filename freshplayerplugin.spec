@@ -1,14 +1,14 @@
 %define debug_package %{nil}
 
-#globals for freshplayerplugin-0.3.5-20160603-4776eeb.tar
-%global gitdate 20160603
-%global gitversion 4776eeb
+#globals for freshplayerplugin-0.3.5-20160712-c0510ba.tar
+%global gitdate 20160712
+%global gitversion c0510ba
 %global snapshot %{gitdate}-%{gitversion}
 %global gver .%{gitdate}git%{gitversion}
 
 Name:    freshplayerplugin
 Version: 0.3.5
-Release: 6%{?gver}%{dist}
+Release: 7%{?gver}%{dist}
 Summary: PPAPI-host NPAPI-plugin adapter
 Group:   Applications/Internet
 License: MIT
@@ -90,7 +90,10 @@ install -Dm 0644 LICENSE %{buildroot}/%{_datadir}/licenses/freshplayerplugin/fre
 
 %changelog
 
-* Fri Jun 03 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 0.3.5-6-20160428-99c5aa1
+* Tue Jul 12 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 0.3.5-7-20160712gitc0510ba
+- Updated to 0.3.5-20160712-c0510ba
+
+* Fri Jun 03 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 0.3.5-6-20160428git99c5aa1
 - Forced gtk2
 - solved slow videos
 

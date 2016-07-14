@@ -2,7 +2,7 @@
  
 Summary:	freshplayerplugin - PPAPI-host NPAPI-plugin adapter
  
-Version:	0.3.5-20160603-4776eeb
+Version:	0.3.5-20160712-c0510ba
  
 License:	MIT
 
