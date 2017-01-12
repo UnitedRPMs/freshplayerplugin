@@ -1,11 +1,8 @@
-#		freshplayerplugin
+#    freshplayerplugin
  
-Summary:	freshplayerplugin - PPAPI-host NPAPI-plugin adapter
+Summary: PPAPI-host NPAPI-plugin adapter
  
-Version:	0.3.5-20160712-c0510ba
+Version: 0.3.6
  
-License:	MIT
-
-
-## How get source ? run (excludes git versions)
-spectool -g freshplayerplugin.spec
+License: MIT
+ 

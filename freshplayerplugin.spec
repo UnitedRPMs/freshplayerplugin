@@ -1,23 +1,19 @@
 %define debug_package %{nil}
 
-#globals for freshplayerplugin-0.3.5-20160712-c0510ba.tar
-%global gitdate 20160712
-%global gitversion c0510ba
+#globals for freshplayerplugin-0.3.6-20170107-decacb2.tar.xz
+%global gitdate 20170107
+%global gitversion decacb2
 %global snapshot %{gitdate}-%{gitversion}
 %global gver .%{gitdate}git%{gitversion}
 
 Name:    freshplayerplugin
-Version: 0.3.5
-Release: 7%{?gver}%{dist}
+Version: 0.3.6
+Release: 1%{?gver}%{dist}
 Summary: PPAPI-host NPAPI-plugin adapter
 Group:   Applications/Internet
 License: MIT
 URL:     https://github.com/i-rinat/freshplayerplugin
-%if 0%{?gitdate}
-Source0: %{name}-%{version}-%{snapshot}.tar
-%else
-Source0: https://github.com/i-rinat/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
-%endif
+Source0: https://transfer.sh/mYH0Y/freshplayerplugin-0.3.6-20170107-decacb2.tar.xz
 Source1: %{name}-snapshot.sh
 #-------------------------------------
 BuildRequires: binutils 
@@ -49,6 +45,7 @@ Recommends: chromium-pepper-flash
 Requires: ffmpeg
 Requires: mozilla-filesystem
 #-------------------------------------
+Conflicts: flashplugin
 
 %description
 PPAPI or Pepper Plugin API is an interface promoted by Chromium/Chrome team 
@@ -60,7 +57,7 @@ interfaces which todays Chromium browser offers to plugins.
 And specs are not final yet. 
 
 %prep
-%setup -q
+%setup -n freshplayerplugin
 
 sed -i 's|\(/chromium\)-browser\(/PepperFlash\)|\1\2|' src/config_pepperflash.c
 sed -i 's|^\(pepperflash_path = \).*$|\1"%{_libdir}/chromium/PepperFlash/libpepflashplayer.so"|' data/freshwrapper.conf.example
@@ -89,6 +86,12 @@ install -Dm 0644 LICENSE %{buildroot}/%{_datadir}/licenses/freshplayerplugin/fre
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+
+* Sat Jan 07 2017 David Vásquez <davidjeremias82 AT gmail DOT com> - 0.3.6-1-20170107gitdecacb2
+- Updated to 0.3.6-20170107gitdecacb2
+
+* Tue Jul 12 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 0.3.6-1-20160712gitc0510ba
+- Updated to 0.3.6-20160712-c0510ba
 
 * Tue Jul 12 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 0.3.5-7-20160712gitc0510ba
 - Updated to 0.3.5-20160712-c0510ba
