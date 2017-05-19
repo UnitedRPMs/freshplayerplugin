@@ -1,20 +1,18 @@
 %define debug_package %{nil}
 
-#globals for freshplayerplugin-0.3.6-20170107-decacb2.tar.xz
-%global gitdate 20170107
-%global gitversion decacb2
-%global snapshot %{gitdate}-%{gitversion}
-%global gver .%{gitdate}git%{gitversion}
+%global gitdate 20170519
+%global commit0 963f43ee8f56d76fd16ae45759c383d15a8c5f6d
+%global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
+%global gver .git%{shortcommit0}
 
 Name:    freshplayerplugin
 Version: 0.3.6
-Release: 1%{?gver}%{dist}
+Release: 2%{?gver}%{dist}
 Summary: PPAPI-host NPAPI-plugin adapter
 Group:   Applications/Internet
 License: MIT
 URL:     https://github.com/i-rinat/freshplayerplugin
-Source0: https://transfer.sh/mYH0Y/freshplayerplugin-0.3.6-20170107-decacb2.tar.xz
-Source1: %{name}-snapshot.sh
+Source0: https://github.com/i-rinat/freshplayerplugin/archive/%{commit0}.tar.gz#/%{name}-%{shortcommit0}.tar.gz
 #-------------------------------------
 BuildRequires: binutils 
 BuildRequires: pkgconfig
@@ -57,7 +55,7 @@ interfaces which todays Chromium browser offers to plugins.
 And specs are not final yet. 
 
 %prep
-%setup -n freshplayerplugin
+%autosetup -n %{name}-%{commit0}  
 
 sed -i 's|\(/chromium\)-browser\(/PepperFlash\)|\1\2|' src/config_pepperflash.c
 sed -i 's|^\(pepperflash_path = \).*$|\1"%{_libdir}/chromium/PepperFlash/libpepflashplayer.so"|' data/freshwrapper.conf.example
@@ -86,6 +84,9 @@ install -Dm 0644 LICENSE %{buildroot}/%{_datadir}/licenses/freshplayerplugin/fre
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+
+* Fri May 19 2017 David Vásquez <davidjeremias82 AT gmail DOT com> - 0.3.6-2.git963f43e
+- Updated to 0.3.6-2.git963f43e
 
 * Sat Jan 07 2017 David Vásquez <davidjeremias82 AT gmail DOT com> - 0.3.6-1-20170107gitdecacb2
 - Updated to 0.3.6-20170107gitdecacb2
