@@ -1,12 +1,12 @@
 %define debug_package %{nil}
 
-%global commit0 1f48001315b632df17debddeb6bac7b3e19e4f2f
+%global commit0 ce233f621bf80c914be1d14f47fdc3f492cfcb47
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
 Name:    freshplayerplugin
 Version: 0.3.9
-Release: 3%{?gver}%{dist}
+Release: 4%{?gver}%{dist}
 Summary: PPAPI-host NPAPI-plugin adapter
 Group:   Applications/Internet
 License: MIT
@@ -83,6 +83,9 @@ install -Dm 0644 LICENSE %{buildroot}/%{_datadir}/licenses/freshplayerplugin/fre
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+
+* Tue Apr 10 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 0.3.9-4.gitce233f6
+- Updated to current commit
 
 * Thu Jan 18 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 0.3.9-3.git1f48001
 - Updated to current commit
