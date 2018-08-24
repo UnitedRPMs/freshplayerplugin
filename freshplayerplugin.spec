@@ -13,6 +13,7 @@ License: MIT
 URL:     https://github.com/i-rinat/freshplayerplugin
 Source0: https://github.com/i-rinat/freshplayerplugin/archive/%{commit0}.tar.gz#/%{name}-%{shortcommit0}.tar.gz
 #-------------------------------------
+BuildRequires: gcc-c++
 BuildRequires: binutils 
 BuildRequires: pkgconfig
 BuildRequires: git 
