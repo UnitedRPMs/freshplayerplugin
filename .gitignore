@@ -1,1 +1,12 @@
-freshplayerplugin-0.3.5.tar.gz
+BUILD/*
+BUILDROOT/*
+RPMS/*
+SPECS/*
+SRPMS/*
+*.tar.bz2
+*.tar.gz
+*.tar.xz
+.directory
+*.rpm
+orig
+new

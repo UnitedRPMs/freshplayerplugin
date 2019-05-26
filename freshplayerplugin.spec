@@ -12,6 +12,7 @@ Group:   Applications/Internet
 License: MIT
 URL:     https://github.com/i-rinat/freshplayerplugin
 Source0: https://github.com/i-rinat/freshplayerplugin/archive/%{commit0}.tar.gz#/%{name}-%{shortcommit0}.tar.gz
+Patch:   alsa_lib_include.patch
 #-------------------------------------
 BuildRequires: gcc-c++
 BuildRequires: binutils 
@@ -55,7 +56,7 @@ interfaces which todays Chromium browser offers to plugins.
 And specs are not final yet. 
 
 %prep
-%autosetup -n %{name}-%{commit0}  
+%autosetup -n %{name}-%{commit0} -p1
 
 sed -i 's|\(/chromium\)-browser\(/PepperFlash\)|\1\2|' src/config_pepperflash.c
 sed -i 's|^\(pepperflash_path = \).*$|\1"%{_libdir}/chromium/PepperFlash/libpepflashplayer.so"|' data/freshwrapper.conf.example
