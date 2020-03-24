@@ -1,18 +1,17 @@
 %define debug_package %{nil}
 
-%global commit0 a160553554d4f07212cdacdc9771b252aac2861e
+%global commit0 e608336b3e9382ceaa6888d122941baaaaa55e91
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
 Name:    freshplayerplugin
 Version: 0.3.11
-Release: 7%{?gver}%{dist}
+Release: 8%{?gver}%{dist}
 Summary: PPAPI-host NPAPI-plugin adapter
 Group:   Applications/Internet
 License: MIT
 URL:     https://github.com/i-rinat/freshplayerplugin
 Source0: https://github.com/i-rinat/freshplayerplugin/archive/%{commit0}.tar.gz#/%{name}-%{shortcommit0}.tar.gz
-Patch:   alsa_lib_include.patch
 #-------------------------------------
 BuildRequires: gcc-c++
 BuildRequires: binutils 
@@ -85,6 +84,9 @@ install -Dm 0644 LICENSE %{buildroot}/%{_datadir}/licenses/freshplayerplugin/fre
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+
+* Tue Mar 24 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 0.3.11-8.gite608336
+- Updated to commit
 
 * Sat May 25 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 0.3.11-7.gita160553
 - Updated to 0.3.11
